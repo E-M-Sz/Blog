@@ -7,12 +7,12 @@
   <h1>Users:</h1>
 
   <% for(var i=0; i < items.length; i++){ %>
-    <div class="card mt-5">
+    <div class="card mt-5" id="<%- items[i].id %>">
       <div class="card-block">
-        <h4 class="card-title"><%= items[i].username %></h4>
-        <p><%= items[i].description %></p>
-        <p class="text-muted"><%= items[i].skill %></p>
-        <button type="button" id="<%- items[i].id %>" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Edit</button>
+        <h4 class="card-title username"><%= items[i].username %></h4>
+        <p class="description"><%= items[i].description %></p>
+        <p class="text-muted skill"><%= items[i].skill %></p>
+        <button type="button" id="<%- items[i].id %>" class="btn btn-primary edit" data-toggle="modal" data-target="#exampleModal">Edit</button>
         <button type="button" id="<%- items[i].id %>" class="btn btn-danger delete">Delete</button>
       </div>
     </div>
@@ -51,7 +51,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-primary">Save</button>
       </div>
     </div>
   </div>
