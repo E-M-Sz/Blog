@@ -36,4 +36,22 @@ router.delete('/delete-user/:id', (req, res) => {
   res.json('done');
 });
 
+router.put('/update-user',urlencodedParser, (req, res) => {
+  console.log(req.body.username);
+  // console.log('asd');
+  // res.json('done');
+  console.log(req.body.id);
+  let data = {
+    id: req.body.id,
+    username: req.body.username,
+    description: req.body.description,
+    skill: req.body.skill
+  };
+  // TEST
+  Users.updateData(data, function(){
+    console.log('Updated entry ' + req.body.id);
+  });
+  res.json('done');
+});
+
 module.exports = router;

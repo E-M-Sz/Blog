@@ -1,8 +1,10 @@
 /* jshint esversion: 6 */
 
+var id;
+
 $(".delete").click(function() {
     // alert(this.id); // or alert($(this).attr('id'));
-    let id = $(this).attr('id');
+    id = $(this).attr('id');
     $.ajax({
       type: 'DELETE',
       url: '/delete-user/' + id,
@@ -17,7 +19,7 @@ $(".delete").click(function() {
 
 $(".edit").click(function() {
     // alert(this.id); // or alert($(this).attr('id'));
-    let id = $(this).attr('id');
+    id = $(this).attr('id');
     let username = $('div#' + id + ' h4').text();
     let description = $('div#' + id + ' p.description').text();
     let skill = $('div#' + id + ' p.skill').text();
@@ -35,4 +37,33 @@ $(".edit").click(function() {
       modal.find('#description-text').val(description);
       modal.find('#skill-text').val(skill);
     });
+});
+
+
+
+$(".save").click(function(){
+  console.log('Clicked save');
+  id = $(this).attr('id');
+  let user = {
+    id: id,
+    username: $('#user-name').val(),
+    description: $('#description-text').val(),
+    skill: $('#skill-text').val()
+  };
+  let username = $('#user-name').val();
+  let description = $('#description-text').val();
+  let skill = $('#skill-text').val();
+
+  // Ajax call to update user-data
+
+  console.log(id);
+  $.ajax({
+    type: 'PUT',
+    url: '/update-user',
+    data: user,
+    success: function(data){
+      console.log(data);
+      location.reload();
+    }
+  });
 });

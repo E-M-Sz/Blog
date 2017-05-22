@@ -1,4 +1,5 @@
 /* jshint esversion: 6 */
+
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -20,7 +21,7 @@ app.use(require('./controllers'));
 
 // Connect to MongoDB
 // MongoDB Atlas
-mongoose.connect(config.mongoURL);
+mongoose.connect(config.mongodb);
 
 
 var db = mongoose.connection;
