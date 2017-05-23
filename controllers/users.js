@@ -42,13 +42,12 @@ router.put('/update-user',urlencodedParser, (req, res) => {
   // res.json('done');
   console.log(req.body.id);
   let data = {
-    id: req.body.id,
     username: req.body.username,
     description: req.body.description,
     skill: req.body.skill
   };
   // TEST
-  Users.updateData(data, function(){
+  Users.updateData(req.body.id, data, function(){
     console.log('Updated entry ' + req.body.id);
   });
   res.json('done');

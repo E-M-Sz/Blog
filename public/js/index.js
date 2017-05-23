@@ -20,6 +20,7 @@ $(".delete").click(function() {
 $(".edit").click(function() {
     // alert(this.id); // or alert($(this).attr('id'));
     id = $(this).attr('id');
+    console.log(id);
     let username = $('div#' + id + ' h4').text();
     let description = $('div#' + id + ' p.description').text();
     let skill = $('div#' + id + ' p.skill').text();
@@ -43,7 +44,7 @@ $(".edit").click(function() {
 
 $(".save").click(function(){
   console.log('Clicked save');
-  id = $(this).attr('id');
+  // id = $(this).attr('id');
   let user = {
     id: id,
     username: $('#user-name').val(),

@@ -39,9 +39,12 @@ exports.deleteData = function (values, callback) {
   });
 };
 
-exports.updateData = function (values, callback) {
-  UserData.findOneAndUpdate(values.id, {username:values.username, description:values.description, skill:values.skill}, function(err){
-    console.log(values.id);
+exports.updateData = function (id, values, callback) {
+  // UserData.findOneAndUpdate(values.id, {username:values.username, description:values.description, skill:values.skill}, function(err){
+  //   console.log(values.id);
+  //   callback();
+  // });
+  UserData.update({_id: id}, values, {upsert: false}, function(){
     callback();
   });
 };
