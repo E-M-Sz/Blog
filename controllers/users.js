@@ -10,15 +10,15 @@ const jsonParser = bodyParser.json();
 // create application/x-www-form-urlencoded parser
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
+router.get('/add-user', (req, res) => {
+  res.render('add-user', {nav: 'addUser'});
+});
+
 router.get('/get-data', (req, res) => {
   Users.getData(function(data) {
     // console.log('got data: '+data);
     res.render('users', {nav: 'users',items:data});
   });
-});
-
-router.get('/add-user', (req, res) => {
-  res.render('add-user', {nav: 'addUser'});
 });
 
 router.post('/add-user',urlencodedParser, (req, res) => {
@@ -38,8 +38,6 @@ router.delete('/delete-user/:id', (req, res) => {
 
 router.put('/update-user',urlencodedParser, (req, res) => {
   console.log(req.body.username);
-  // console.log('asd');
-  // res.json('done');
   console.log(req.body.id);
   let data = {
     username: req.body.username,
