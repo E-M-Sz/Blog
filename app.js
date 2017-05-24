@@ -19,8 +19,7 @@ app.use(require('./controllers'));
 
 
 
-// Connect to MongoDB
-// MongoDB Atlas
+// Connect to MongoDB - MongoDB Atlas
 mongoose.connect(config.mongodb);
 
 

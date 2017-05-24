@@ -20,7 +20,6 @@ exports.getData = function (callback) {
 };
 
 exports.setData = function (values, callback) {
-  console.log('setData: ' + values.username);
   const user = new UserData({
     username: values.username,
     description: values.description,
