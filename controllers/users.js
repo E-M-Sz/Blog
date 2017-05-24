@@ -16,37 +16,31 @@ router.get('/add-user', (req, res) => {
 
 router.get('/get-data', (req, res) => {
   Users.getData(function(data) {
-    // console.log('got data: '+data);
     res.render('users', {nav: 'users',items:data});
   });
 });
 
 router.post('/add-user',urlencodedParser, (req, res) => {
   Users.setData(req.body, function(data) {
-    // console.log('got data: '+data);
     res.redirect('/get-data');
   });
 });
 
 router.delete('/delete-user/:id', (req, res) => {
   Users.deleteData(req.params.id, function(){
-    console.log('Delteted entry: ' + req.params.id);
-    // res.redirect('/get-data');
+    console.log(`Deleted entry: ${req.params.id}`);
   });
   res.json('done');
 });
 
 router.put('/update-user',urlencodedParser, (req, res) => {
-  console.log(req.body.username);
-  console.log(req.body.id);
   let data = {
     username: req.body.username,
     description: req.body.description,
     skill: req.body.skill
   };
-  // TEST
   Users.updateData(req.body.id, data, function(){
-    console.log('Updated entry ' + req.body.id);
+    console.log(`Updated entry: ${req.body.id}`);
   });
   res.json('done');
 });
