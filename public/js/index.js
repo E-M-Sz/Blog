@@ -1,5 +1,3 @@
-/* jshint esversion: 6 */
-
 $(".delete").click(function() {
     // alert(this.id); // or alert($(this).attr('id'));
     let id = $(this).attr('id');

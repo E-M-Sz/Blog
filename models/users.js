@@ -1,4 +1,3 @@
-/* jshint esversion: 6 */
 const mongoose = require('mongoose');
 
 // Create Mongoose Shema
