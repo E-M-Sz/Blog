@@ -19,8 +19,6 @@ exports.getData = function (callback) {
 };
 
 exports.setData = function (values, callback) {
-  // Userdata.
-  console.log('model: ' + values.username);
   const user = new UserData({
     username: values.username,
     description: values.description,
@@ -34,6 +32,12 @@ exports.setData = function (values, callback) {
 
 exports.deleteData = function (values, callback) {
   UserData.findByIdAndRemove(values, function(err){
+    callback();
+  });
+};
+
+exports.updateData = function (id, values, callback) {
+  UserData.update({_id: id}, values, {upsert: false}, function(){
     callback();
   });
 };

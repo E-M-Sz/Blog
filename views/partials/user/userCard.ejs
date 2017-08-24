@@ -1,0 +1,11 @@
+<% for(var i = 0; i < items.length; i++){ %>
+  <div class="card mt-5" id="<%- items[i].id %>">
+    <div class="card-block">
+      <h4 class="card-title username"><%= items[i].username %></h4>
+      <p class="description"><%= items[i].description %></p>
+      <p class="text-muted skill"><%= items[i].skill %></p>
+      <button type="button" id="<%- items[i].id %>" class="btn btn-primary edit" data-toggle="modal" data-target="#exampleModal">Edit</button>
+      <button type="button" id="<%- items[i].id %>" class="btn btn-danger delete">Delete</button>
+    </div>
+  </div>
+<% } %>
