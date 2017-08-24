@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-/* jshint esversion: 6 */
-
->>>>>>> d3750563bb0e0eaf2ed4945b48b1bd03b31681e2
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');

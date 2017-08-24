@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-=======
-/* jshint esversion: 6 */
-
-var id;
-
->>>>>>> d3750563bb0e0eaf2ed4945b48b1bd03b31681e2
 $(".delete").click(function() {
     // alert(this.id); // or alert($(this).attr('id'));
   id = $(this).attr('id');
